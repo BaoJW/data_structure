@@ -12,7 +12,7 @@ package queue
 */
 
 type MyCircularQueue struct {
-	data        []int64
+	data        []int
 	headPointer int
 	tailPointer int
 	size        int
@@ -21,7 +21,7 @@ type MyCircularQueue struct {
 // Initialize your data structure here. Set the size of the queue to be k.
 func NewMyCircularQueue(k int) *MyCircularQueue {
 	return &MyCircularQueue{
-		data:        make([]int64, k, k),
+		data:        make([]int, k, k),
 		headPointer: -1,
 		tailPointer: -1,
 		size:        k,
@@ -29,7 +29,7 @@ func NewMyCircularQueue(k int) *MyCircularQueue {
 }
 
 // Insert an element into the circular queue. Return true if the operation is successful.
-func (q *MyCircularQueue) EnQueue(value int64) bool {
+func (q *MyCircularQueue) EnQueue(value int) bool {
 	if q.IsFull() {
 		return false
 	}
@@ -59,7 +59,7 @@ func (q *MyCircularQueue) DeQueue() bool {
 }
 
 // Get the front item from the queue.
-func (q *MyCircularQueue) Front() int64 {
+func (q *MyCircularQueue) Front() int {
 	if q.IsEmpty() {
 		return -1
 	}
@@ -68,7 +68,7 @@ func (q *MyCircularQueue) Front() int64 {
 }
 
 // Get the last item from the queue.
-func (q *MyCircularQueue) Rear() int64 {
+func (q *MyCircularQueue) Rear() int {
 	if q.IsEmpty() {
 		return -1
 	}
