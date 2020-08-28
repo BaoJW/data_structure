@@ -24,7 +24,7 @@ func (l *List) Init(length int64) {
 }
 
 func (l *List) IsEmpty() bool {
-	if l.Head.Next != nil {
+	if l.Head != nil && l.Head.Next != nil {
 		return false
 	}
 
