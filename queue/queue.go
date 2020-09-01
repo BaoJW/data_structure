@@ -8,6 +8,19 @@ package queue
 	删除（delete）操作也被称为出队（dequeue)。 你只能移除第一个元素。
 */
 
+type Element interface{}
+
+type Queue interface {
+	InitQueue()                    // 初始化操作，创建一个空队列
+	DestroyQueue()                 // 若队列存在，则销毁他
+	ClearQueue()                   // 将队列清空
+	QueueEmpty() bool              // 若队列为空，返回true，否则返回false
+	GetHead() Element              // 若队列存在且非空，用e返回队列Q的队头元素
+	EnQueue(element Element) error // 若队列Q存在，插入新元素e到队列Q中并成为队尾元素
+	DeQueue() (Element, error)     // 删除队列中Q中队头元素，并用e返回其值
+	QueueLength() int              // 返回队列的元素个数
+}
+
 type MyQueue struct {
 	data         []uint64 // store elements
 	startPointer int      // a pointer to indicate the start position
